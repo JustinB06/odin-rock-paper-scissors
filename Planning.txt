@@ -1,0 +1,85 @@
+Components:
+===========================
+1. getComputerChoice()
+----------------------------------------
+Goal:
+- Randomly returns one of “rock”, “paper” or 
+“scissors”.
+
+Implementation:
+- We will randomly generate a number that has a value
+of 1, 2, or 3.
+    - If number === 1 return "rock".
+    - If number === 2 return "paper".
+    - If number === 3 return "scissors".
+----------------------------------------
+
+
+2. getHumanChoice()
+----------------------------------------
+Goal: 
+- Get user's inputted choice of “rock”, “paper” or 
+“scissors”. Then return this choice.
+    - Note: we don't need to handle invalid inputs. 
+    We assume the choice is valid.
+
+Implementation:
+- We'll use the prompt method to get the user's
+input.
+----------------------------------------
+
+
+3. humanScore and computerScore
+----------------------------------------
+Goal:
+- 2 variables that store the scores of the
+respective players.
+
+Implementation:
+- We store them inside playGame() function.
+
+
+4. playRound(humanChoice, computerChoice)
+----------------------------------------
+Goal: 
+- Parameters provide the human's choice and
+computer's choice respectively.
+    - Note: make the parameter values case
+    insensitive 
+        - ex. "ROCK" and "roCk" are both valid.
+- The function should log to the console who the 
+winner is.
+    - ex. “You lose! Paper beats Rock”.
+- Lastly, we return who won the game.
+
+Implementation:
+- We'll call getHumanChoice and computerChoice, then 
+pass the result to playRound() to get the choices.
+- We'll decide the winner using if statements. 
+    - if humanChoice === 'rock'
+        - if computerChoice === 'scissors', human wins.
+        - if computerChoice === 'paper', comp wins.
+    - if humanChoice === "paper"
+        - if computerChoice === 'rock', human wins.
+        - if computerChoice === 'scissors', comp wins.
+    - if humanChoice === "scissors"
+        - if computerChoice === 'paper', human wins.
+        - if computerChoice === 'rock', comp wins.
+    - Finally, if none of the previous if statements
+    decided a winner, they tie.
+----------------------------------------
+
+
+5. playGame()
+----------------------------------------
+Goal:
+- Play 5 rounds. Keeps track of score.
+
+Implementation:
+- Call playRound() 5 times total.
+- Track score using humanScore and computerScore.
+- We'll increment humanScore and 
+computerScore according to who won each game.
+
+
+
