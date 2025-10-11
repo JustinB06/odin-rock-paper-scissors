@@ -26,7 +26,37 @@ returns the winner as a string. */
 function playRound(humanChoice, computerChoice) {
   let winner = "none";
 
-  //Deciding a winner
+  // Storing winning and losing outcomes
+  const rockBattle = {
+    choice: "rock",
+    humanWinsWhenVS: "scissors",
+    humanLosesWhenVS: "paper",
+  };
+  const paperBattle = {
+    choice: "paper",
+    humanWinsWhenVS: "rock",
+    humanLosesWhenVS: "scissors",
+  };
+  const scissorsBattle = {
+    choice: "scissors",
+    humanWinsWhenVS: "paper",
+    humanLosesWhenVS: "rock",
+  };
+  let battleArr = [rockBattle, paperBattle, scissorsBattle];
+
+  // Deciding a winner
+  for (battleType of battleArr) {
+    if (humanChoice === battleType.choice) {
+      if (computerChoice === battleType.humanWinsWhenVS) winner = "human";
+      else if (computerChoice === battleType.humanLosesWhenVS)
+        winner = "computer";
+      break;
+    }
+  }
+  console.log(`human: ${humanChoice}`);
+  console.log(`computer: ${computerChoice}`);
+
+  /* //Deciding a winner
   switch (humanChoice) {
     case "rock":
       switch (computerChoice) {
@@ -60,7 +90,7 @@ function playRound(humanChoice, computerChoice) {
           break;
       }
       break;
-  }
+  } */
 
   // Logging the winner
   if (winner === "human") {
@@ -83,10 +113,24 @@ function playGame() {
   let computerScore = 0;
 
   // Loop to play 5 games.
-  for (let i = 0; i < 5; i++) {
+  // for (let i = 0; i < 5; i++) {
+  // Get human and player choices of rock, paper, or scissors.
+  // let humanChoice = getHumanChoice();
+  // let computerChoice = getComputerChoice();
+  //
+  // Play a game round.
+  // let winner = playRound(humanChoice, computerChoice);
+  //
+  // Increment the winner's score.
+  // if (winner === "human") humanScore++;
+  // else if (winner === "computer") computerScore++;
+  // }
+
+  // Event delegation for user's UI choice
+  document.body.addEventListener("click", (event) => {
     // Get human and player choices of rock, paper, or scissors.
-    let humanChoice = getHumanChoice();
     let computerChoice = getComputerChoice();
+    let humanChoice = event.target.id;
 
     // Play a game round.
     let winner = playRound(humanChoice, computerChoice);
@@ -94,11 +138,11 @@ function playGame() {
     // Increment the winner's score.
     if (winner === "human") humanScore++;
     else if (winner === "computer") computerScore++;
-  }
+  });
 
   // Declare the overall winner
-  console.log("The game is over");
-  if (humanScore === computerScore) console.log("The game is a tie!");
-  else if (humanScore > computerScore) console.log("You win!");
-  else console.log("You lose!");
+  // console.log("The game is over.");
+  // if (humanScore === computerScore) console.log("The game is a tie!");
+  // else if (humanScore > computerScore) console.log("You win!");
+  // else console.log("You lose!");
 }
