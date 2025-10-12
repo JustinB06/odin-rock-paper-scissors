@@ -79,11 +79,19 @@ function displayResults(humanChoice, computerChoice, winner) {
   display output components.*/
   const humanScoreSpanRef = document.querySelector("#humanScore");
   const computerScoreSpanRef = document.querySelector("#computerScore");
+  const humanChoicePRef = document.querySelector("#humanChoice");
+  const computerChoicePRef = document.querySelector("#computerChoice");
   const resultsPRef = document.querySelector("#result");
 
   /* Setting the score display */
   humanScoreSpanRef.textContent = `${humanScore}`;
   computerScoreSpanRef.textContent = `${computerScore}`;
+
+  /* Setting the choice display */
+  humanChoicePRef.textContent =
+    humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
+  computerChoicePRef.textContent =
+    computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
 
   /* Setting the winner's statement output to the page. */
   if (winner === "human") {
