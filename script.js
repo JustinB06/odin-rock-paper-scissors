@@ -1,4 +1,20 @@
-playGame();
+// playGame();
+// Track game scores.
+let humanScore = 0;
+let computerScore = 0;
+
+document.body.addEventListener("click", (event) => {
+  // Get human and player choices of rock, paper, or scissors.
+  let computerChoice = getComputerChoice();
+  let humanChoice = event.target.id;
+
+  // Play a game round.
+  let winner = playRound(humanChoice, computerChoice);
+
+  // Increment the winner's score.
+  if (winner === "human") humanScore++;
+  else if (winner === "computer") computerScore++;
+});
 
 /* Randomly generates and returns the computer's 
 choice, being one of “rock”, “paper” or 
@@ -58,15 +74,18 @@ function playRound(humanChoice, computerChoice) {
   display output to the user */
   let outputDivRef = document.querySelector("div");
 
-  /* Creation of elements that will display output
-  components.*/
-  let humanChoicePRef = document.createElement("p");
-  humanChoicePRef.textContent = `You: ${humanChoice}`;
+  /* Getting the reference of elements that will 
+  display output components.*/
+  // let humanChoicePRef = document.createElement("p");
+  // humanChoicePRef.textContent = `You: ${humanChoice}`;
+  let humanChoicePRef = document.querySelector("#humanChoice");
 
-  let computerChoicePRef = document.createElement("p");
-  computerChoicePRef.textContent = `Computer: ${computerChoice}`;
+  // let computerChoicePRef = document.createElement("p");
+  // computerChoicePRef.textContent = `Computer: ${computerChoice}`;
+  let computerChoicePRef = document.querySelector("#computerChoice");
 
-  let resultsPRef = document.createElement("p");
+  // let resultsPRef = document.createElement("p");
+  let resultsPRef = document.querySelector("#result");
 
   /* Setting the winner's statement output to the page. */
   if (winner === "human") {
@@ -81,15 +100,15 @@ function playRound(humanChoice, computerChoice) {
   }
 
   /* Inserting our output elements into the page */
-  outputDivRef.appendChild(humanChoicePRef);
+  /* outputDivRef.appendChild(humanChoicePRef);
   outputDivRef.appendChild(computerChoicePRef);
   outputDivRef.appendChild(resultsPRef);
-  outputDivRef.appendChild(document.createElement("hr"));
+  outputDivRef.appendChild(document.createElement("hr")); */
 
   return winner;
 }
 
-function playGame() {
+/* function playGame() {
   // Track game scores.
   let humanScore = 0;
   let computerScore = 0;
@@ -127,4 +146,4 @@ function playGame() {
   // if (humanScore === computerScore) console.log("The game is a tie!");
   // else if (humanScore > computerScore) console.log("You win!");
   // else console.log("You lose!");
-}
+} */
