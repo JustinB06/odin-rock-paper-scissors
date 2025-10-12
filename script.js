@@ -53,56 +53,38 @@ function playRound(humanChoice, computerChoice) {
       break;
     }
   }
-  console.log(`human: ${humanChoice}`);
-  console.log(`computer: ${computerChoice}`);
 
-  /* //Deciding a winner
-  switch (humanChoice) {
-    case "rock":
-      switch (computerChoice) {
-        case "scissors":
-          winner = "human";
-          break;
-        case "paper":
-          winner = "computer";
-          break;
-      }
-      break;
+  /* Storing reference to DOM element div where we'll
+  display output to the user */
+  let outputDivRef = document.querySelector("div");
 
-    case "paper":
-      switch (computerChoice) {
-        case "rock":
-          winner = "human";
-          break;
-        case "scissors":
-          winner = "computer";
-          break;
-      }
-      break;
+  /* Creation of elements that will display output
+  components.*/
+  let humanChoicePRef = document.createElement("p");
+  humanChoicePRef.textContent = `Human: ${humanChoice}`;
 
-    case "scissors":
-      switch (computerChoice) {
-        case "paper":
-          winner = "human";
-          break;
-        case "rock":
-          winner = "computer";
-          break;
-      }
-      break;
-  } */
+  let computerChoicePRef = document.createElement("p");
+  computerChoicePRef.textContent = `Computer: ${computerChoice}`;
 
-  // Logging the winner
+  let resultsPRef = document.createElement("p");
+
+  /* Setting the winner's statement output to the page. */
   if (winner === "human") {
-    console.log(`You win! ${humanChoice} beats 
-        \ ${computerChoice}`);
+    resultsPRef.textContent = `You win! ${humanChoice} beats
+    \ ${computerChoice}`;
   } else if (winner === "computer") {
-    console.log(`You lose! ${humanChoice} loses to 
-        \ ${computerChoice}`);
+    resultsPRef.textContent = `You lose! ${humanChoice} loses to 
+        \ ${computerChoice}`;
   } else {
-    console.log(`You tied! ${humanChoice} ties with 
-        \ ${computerChoice}`);
+    resultsPRef.textContent = `You tied! ${humanChoice} ties with 
+        \ ${computerChoice}`;
   }
+
+  /* Inserting our output elements into the page */
+  outputDivRef.appendChild(humanChoicePRef);
+  outputDivRef.appendChild(computerChoicePRef);
+  outputDivRef.appendChild(resultsPRef);
+  outputDivRef.appendChild(document.createElement("hr"));
 
   return winner;
 }
