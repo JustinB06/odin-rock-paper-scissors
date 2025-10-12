@@ -61,7 +61,7 @@ function playRound(humanChoice, computerChoice) {
   /* Creation of elements that will display output
   components.*/
   let humanChoicePRef = document.createElement("p");
-  humanChoicePRef.textContent = `Human: ${humanChoice}`;
+  humanChoicePRef.textContent = `You: ${humanChoice}`;
 
   let computerChoicePRef = document.createElement("p");
   computerChoicePRef.textContent = `Computer: ${computerChoice}`;
