@@ -13,6 +13,8 @@ document.body.addEventListener("click", (event) => {
   // Increment the winner's score.
   if (winner === "human") humanScore++;
   else if (winner === "computer") computerScore++;
+
+  displayResults(humanChoice, computerChoice, winner);
 });
 
 /* Randomly generates and returns the computer's 
@@ -69,19 +71,19 @@ function playRound(humanChoice, computerChoice) {
     }
   }
 
-  /* Storing reference to DOM element div where we'll
-  display output to the user */
-  let outputDivRef = document.querySelector("div");
+  return winner;
+}
 
+function displayResults(humanChoice, computerChoice, winner) {
   /* Getting the reference of elements that will 
   display output components.*/
-  const humanChoiceSpanRef = document.querySelector("#humanScore");
-  const computerChoiceSpanRef = document.querySelector("#computerScore");
+  const humanScoreSpanRef = document.querySelector("#humanScore");
+  const computerScoreSpanRef = document.querySelector("#computerScore");
   const resultsPRef = document.querySelector("#result");
 
   /* Setting the score display */
-  humanChoiceSpanRef.textContent = `${humanScore}`;
-  computerChoiceSpanRef.textContent = `${computerScore}`;
+  humanScoreSpanRef.textContent = `${humanScore}`;
+  computerScoreSpanRef.textContent = `${computerScore}`;
 
   /* Setting the winner's statement output to the page. */
   if (winner === "human") {
@@ -94,8 +96,6 @@ function playRound(humanChoice, computerChoice) {
     resultsPRef.textContent = `You tied! your ${humanChoice}
         \ ties with the computer's ${computerChoice}`;
   }
-
-  return winner;
 }
 
 /* function playGame() {
