@@ -1,4 +1,3 @@
-// playGame();
 // Track game scores.
 let humanScore = 0;
 let computerScore = 0;
@@ -76,34 +75,25 @@ function playRound(humanChoice, computerChoice) {
 
   /* Getting the reference of elements that will 
   display output components.*/
-  // let humanChoicePRef = document.createElement("p");
-  // humanChoicePRef.textContent = `You: ${humanChoice}`;
-  let humanChoicePRef = document.querySelector("#humanChoice");
+  const humanChoiceSpanRef = document.querySelector("#humanScore");
+  const computerChoiceSpanRef = document.querySelector("#computerScore");
+  const resultsPRef = document.querySelector("#result");
 
-  // let computerChoicePRef = document.createElement("p");
-  // computerChoicePRef.textContent = `Computer: ${computerChoice}`;
-  let computerChoicePRef = document.querySelector("#computerChoice");
-
-  // let resultsPRef = document.createElement("p");
-  let resultsPRef = document.querySelector("#result");
+  /* Setting the score display */
+  humanChoiceSpanRef.textContent = `${humanScore}`;
+  computerChoiceSpanRef.textContent = `${computerScore}`;
 
   /* Setting the winner's statement output to the page. */
   if (winner === "human") {
-    resultsPRef.textContent = `You win! ${humanChoice} beats
-    \ ${computerChoice}`;
+    resultsPRef.textContent = `You win! your ${humanChoice}
+    \ beats the computer's ${computerChoice}`;
   } else if (winner === "computer") {
-    resultsPRef.textContent = `You lose! ${humanChoice} loses to 
-        \ ${computerChoice}`;
+    resultsPRef.textContent = `You lose! your ${humanChoice}  
+        \ loses to the computer's ${computerChoice}`;
   } else {
-    resultsPRef.textContent = `You tied! ${humanChoice} ties with 
-        \ ${computerChoice}`;
+    resultsPRef.textContent = `You tied! your ${humanChoice}
+        \ ties with the computer's ${computerChoice}`;
   }
-
-  /* Inserting our output elements into the page */
-  /* outputDivRef.appendChild(humanChoicePRef);
-  outputDivRef.appendChild(computerChoicePRef);
-  outputDivRef.appendChild(resultsPRef);
-  outputDivRef.appendChild(document.createElement("hr")); */
 
   return winner;
 }
