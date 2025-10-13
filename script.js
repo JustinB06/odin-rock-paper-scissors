@@ -2,7 +2,7 @@
 let humanScore = 0;
 let computerScore = 0;
 
-document.body.addEventListener("click", (event) => {
+function playGame(event) {
   // Get human and player choices of rock, paper, or scissors.
   let computerChoice = getComputerChoice();
   let humanChoice = event.target.id;
@@ -15,7 +15,24 @@ document.body.addEventListener("click", (event) => {
   else if (winner === "computer") computerScore++;
 
   displayResults(humanChoice, computerChoice, winner);
-});
+
+  /* Check if the game is over (when a score of 5
+  if reached) */
+  if (humanScore === 5 || computerScore === 5) {
+    document.body.removeEventListener("click", playGame);
+
+    const resultsPRef = document.querySelector("#result");
+    if (humanScore === 5)
+      resultsPRef.textContent = `You win! You've 
+    \ scored 5 points. :>)`;
+    else
+      resultsPRef.textContent = `You lose! The
+    \ computer scored 5 points. :>(`;
+  }
+  // displayResults(humanChoice, computerChoice, winner);
+}
+
+document.body.addEventListener("click", playGame);
 
 /* Randomly generates and returns the computer's 
 choice, being one of “rock”, “paper” or 
