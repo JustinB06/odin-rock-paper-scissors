@@ -20,16 +20,9 @@ function playGame(event) {
   if reached) */
   if (humanScore === 5 || computerScore === 5) {
     document.body.removeEventListener("click", playGame);
-
-    const resultsPRef = document.querySelector("#result");
-    if (humanScore === 5)
-      resultsPRef.textContent = `You win! You've 
-    \ scored 5 points. :>)`;
-    else
-      resultsPRef.textContent = `You lose! The
-    \ computer scored 5 points. :>(`;
+    if (humanScore === 5) alert(`You win! You've scored 5 points. :>)`);
+    else alert(`You lose! The computer scored 5 points. :>(`);
   }
-  // displayResults(humanChoice, computerChoice, winner);
 }
 
 document.body.addEventListener("click", playGame);
@@ -122,43 +115,3 @@ function displayResults(humanChoice, computerChoice, winner) {
         \ ties with the computer's ${computerChoice}`;
   }
 }
-
-/* function playGame() {
-  // Track game scores.
-  let humanScore = 0;
-  let computerScore = 0;
-
-  // Loop to play 5 games.
-  // for (let i = 0; i < 5; i++) {
-  // Get human and player choices of rock, paper, or scissors.
-  // let humanChoice = getHumanChoice();
-  // let computerChoice = getComputerChoice();
-  //
-  // Play a game round.
-  // let winner = playRound(humanChoice, computerChoice);
-  //
-  // Increment the winner's score.
-  // if (winner === "human") humanScore++;
-  // else if (winner === "computer") computerScore++;
-  // }
-
-  // Event delegation for user's UI choice
-  document.body.addEventListener("click", (event) => {
-    // Get human and player choices of rock, paper, or scissors.
-    let computerChoice = getComputerChoice();
-    let humanChoice = event.target.id;
-
-    // Play a game round.
-    let winner = playRound(humanChoice, computerChoice);
-
-    // Increment the winner's score.
-    if (winner === "human") humanScore++;
-    else if (winner === "computer") computerScore++;
-  });
-
-  // Declare the overall winner
-  // console.log("The game is over.");
-  // if (humanScore === computerScore) console.log("The game is a tie!");
-  // else if (humanScore > computerScore) console.log("You win!");
-  // else console.log("You lose!");
-} */
