@@ -1,0 +1,20 @@
+header background: #16697a
+header text: #ede7e3
+
+score background: #489fb5
+score text: #ede7e3
+
+mid-section background: #82c0cc
+
+left mid background: #91cfdb
+left mid button background: #489fb5
+left mid button text: #fff8f3
+left mid choice text: #fff8f3
+
+right mid text: #fff8f3
+
+
+
+
+
+

@@ -66,7 +66,8 @@ function displayResults(humanChoice, computerChoice, winner) {
   const computerScoreSpanRef = document.querySelector("#computerScore");
   const humanChoicePRef = document.querySelector("#humanChoice");
   const computerChoicePRef = document.querySelector("#computerChoice");
-  const resultsPRef = document.querySelector("#result");
+  const resultsSummaryRef = document.querySelector("#result-summary");
+  const resultsDetailsRef = document.querySelector("#result-details");
 
   /* Setting the score display */
   humanScoreSpanRef.textContent = `${humanScore}`;
@@ -80,14 +81,17 @@ function displayResults(humanChoice, computerChoice, winner) {
 
   /* Setting the winner's statement output to the page. */
   if (winner === "human") {
-    resultsPRef.textContent = `You win! your ${humanChoice}
-    \ beats the computer's ${computerChoice}`;
+    resultsSummaryRef.textContent = `You win!`;
+    resultsDetailsRef.textContent = `Your ${humanChoice}
+    \ beats the computer's ${computerChoice}.`;
   } else if (winner === "computer") {
-    resultsPRef.textContent = `You lose! your ${humanChoice}  
-        \ loses to the computer's ${computerChoice}`;
+    resultsSummaryRef.textContent = `You lose!`;
+    resultsDetailsRef.textContent = `Your ${humanChoice}  
+        \ loses to the computer's ${computerChoice}.`;
   } else {
-    resultsPRef.textContent = `You tied! your ${humanChoice}
-        \ ties with the computer's ${computerChoice}`;
+    resultsSummaryRef.textContent = `You tied!`;
+    resultsDetailsRef.textContent = `Your ${humanChoice}
+        \ ties with the computer's ${computerChoice}.`;
   }
 }
 
