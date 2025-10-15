@@ -5,26 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Rock, Paper, Scissors</h1>
-    <h4>Click a button to play against the computer.</h4>
-    <h4>The game ends when a score of 5 is reached by either player.</h4>
-    <hr />
+    <div id="header">
+      <h1>Rock, Paper, Scissors</h1>
+      <h4>Click a button to play against the computer.</h4>
+      <h5>The game ends when a score of 5 is reached by either player.</h5>
+      <hr />
+    </div>
 
-    <h2>Score</h2>
-    <p>You: <span id="humanScore">0</span></p>
-    <p>Computer: <span id="computerScore">0</span></p>
+    <div id="score">
+      <h2>Score</h2>
+      <p>You: <span id="humanScore">0</span></p>
+      <p>Computer: <span id="computerScore">0</span></p>
+    </div>
 
-    <hr />
-    <br />
+    <div id="mid-section">
+      <div id="user-selection">
+        <div id="button-section">
+          <button id="rock">Rock</button>
+          <button id="paper">Paper</button>
+          <button id="scissors">Scissors</button>
+        </div>
 
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissors">Scissors</button>
-
-    <p>Your Choice: <span id="humanChoice"></span></p>
-    <p>Computer Choice: <span id="computerChoice"></span></p>
-    <p id="result"></p>
+        <div id="choice-display">
+          <p>Your Choice: <span id="humanChoice"></span></p>
+          <p>Computer Choice: <span id="computerChoice"></span></p>
+        </div>
+      </div>
+      <div id="output-display">
+        <h5></h5>
+        <p id="result"></p>
+      </div>
+    </div>
   </body>
 </html>

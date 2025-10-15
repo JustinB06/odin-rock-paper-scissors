@@ -1,1 +1,3 @@
-- Quickly style the code with CSS
+- Add background colors
+
+- Change font size/styling for a better look

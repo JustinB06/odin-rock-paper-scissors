@@ -1,0 +1,51 @@
+/* Importing a google font*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+body {
+  font-family: Roboto, sans-serif;
+}
+
+/* Header */
+#header {
+  text-align: center;
+  font-size: 18px;
+}
+#header h4,
+#header h5 {
+  margin: 1rem;
+}
+
+/* Score */
+#score {
+  display: flex;
+  align-items: baseline;
+  gap: 2rem;
+
+  margin: 1rem;
+}
+#score * {
+  margin: 0;
+}
+
+/* Mid-section */
+#mid-section {
+  display: flex;
+  align-items: center;
+
+  margin: 1rem;
+}
+
+#mid-section #user-selection {
+  /* Stop growing, stop shrinking, and set a 
+  constant size. 
+  
+  This prevents #output-display
+  from being pushed by JavaScript dynamically
+  setting text.*/
+  flex: 0 0 15rem;
+
+  padding: 0.5rem;
+}
+
+#output-display {
+  text-align: center;
+}

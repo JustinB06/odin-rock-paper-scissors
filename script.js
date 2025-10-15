@@ -2,31 +2,6 @@
 let humanScore = 0;
 let computerScore = 0;
 
-function playGame(event) {
-  // Get human and player choices of rock, paper, or scissors.
-  let computerChoice = getComputerChoice();
-  let humanChoice = event.target.id;
-
-  // Play a game round.
-  let winner = playRound(humanChoice, computerChoice);
-
-  // Increment the winner's score.
-  if (winner === "human") humanScore++;
-  else if (winner === "computer") computerScore++;
-
-  displayResults(humanChoice, computerChoice, winner);
-
-  /* Check if the game is over (when a score of 5
-  if reached) */
-  if (humanScore === 5 || computerScore === 5) {
-    document.body.removeEventListener("click", playGame);
-    if (humanScore === 5) alert(`You win! You've scored 5 points. :>)`);
-    else alert(`You lose! The computer scored 5 points. :>(`);
-  }
-}
-
-document.body.addEventListener("click", playGame);
-
 /* Randomly generates and returns the computer's 
 choice, being one of “rock”, “paper” or 
 “scissors”.*/
@@ -115,3 +90,35 @@ function displayResults(humanChoice, computerChoice, winner) {
         \ ties with the computer's ${computerChoice}`;
   }
 }
+
+function playGame(event) {
+  // Get human and player choices of rock, paper, or scissors.
+  let computerChoice = getComputerChoice();
+  let humanChoice = event.target.id;
+
+  // Check that the user's click was one of the buttons
+  if (
+    humanChoice === "rock" ||
+    humanChoice === "paper" ||
+    humanChoice === "scissors"
+  ) {
+    // Play a game round.
+    let winner = playRound(humanChoice, computerChoice);
+
+    // Increment the winner's score.
+    if (winner === "human") humanScore++;
+    else if (winner === "computer") computerScore++;
+
+    displayResults(humanChoice, computerChoice, winner);
+
+    /* Check if the game is over (when a score of 5
+    if reached) */
+    if (humanScore === 5 || computerScore === 5) {
+      document.body.removeEventListener("click", playGame);
+      if (humanScore === 5) alert(`You win! You've scored 5 points. :>)`);
+      else alert(`You lose! The computer scored 5 points. :>(`);
+    }
+  }
+}
+
+document.body.addEventListener("click", playGame);
