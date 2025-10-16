@@ -1,8 +1,5 @@
 /* Importing a google font*/
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
-html {
-  /* height: 100%; */
-}
 
 body {
   font-family: Roboto, sans-serif;
@@ -45,7 +42,6 @@ body {
   align-items: baseline;
   gap: 2rem;
 
-  /* margin: 1rem; */
   padding: 0.25rem;
 
   background-color: #489fb5;
@@ -68,7 +64,6 @@ body {
 
   background-color: #82c0cc;
 }
-
 #mid-section #user-selection {
   /* Stop growing, stop shrinking, and set a 
   constant size. 
@@ -113,12 +108,10 @@ body {
 
   color: #ede7e3;
 }
-
 #output-display #result-summary {
   font-weight: 550;
   margin: 0.5rem;
 }
-
 #output-display #result-details {
   font-weight: 350;
   margin: 0.5rem;
